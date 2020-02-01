@@ -1,0 +1,30 @@
+import java.util.Scanner;
+//dodałem IF(ADDYES)
+public class CzTemp {
+	
+	public static void main(String[] args) {
+		TempDate newTempDate = new TempDate();
+		DBLayer newDBLayer = new DBLayer();
+		boolean addyes = true;
+		Scanner s = new Scanner(System.in);
+		// TODO Auto-generated method stub		
+			System.out.println("Podaj Temp");
+			Double T = s.nextDouble();
+			System.out.println("Podaj Date");
+			String D = s.nextLine();
+			D = s.nextLine();
+			newTempDate.setTemp(T);
+			newTempDate.setDate(D);
+			try {
+				newDBLayer.addTempDate(newTempDate);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				addyes = false;
+			}
+			if(addyes) 
+			System.out.println("Dodano do bazy: " + newTempDate);
+		
+	
+	}
+}
